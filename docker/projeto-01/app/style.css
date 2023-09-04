@@ -1,0 +1,131 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #6a0dad;
+  color: white;
+}
+
+header,
+footer {
+  height: 100px;
+  background-color: #000;
+  color: white;
+  text-align: center;
+  padding: 20px;
+}
+
+#header-text {
+  font-size: 24px;
+  overflow: hidden;
+  white-space: nowrap;
+  letter-spacing: 4px;
+  animation: typing 3s steps(32, end) infinite;
+}
+
+@keyframes typing {
+  from {
+    width: 0;
+  }
+  to {
+    width: auto;
+  }
+}
+
+main {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+section {
+  background-color: rgba(0, 0, 0, 0.8);
+  margin-bottom: 20px;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  position: relative;
+  opacity: 1;
+  transition: opacity 0.5s ease;
+}
+
+#habilidades-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.habilidade {
+  background-color: #000;
+  color: white;
+  padding: 10px;
+  margin: 5px;
+  border-radius: 5px;
+  text-align: center;
+  font-size: 30px;
+  transform: scale(1);
+  opacity: 1;
+  transition: transform 0.3s ease;
+}
+
+.habilidade i {
+  font-size: 36px;
+  margin-bottom: 10px;
+  opacity: 0.4;
+  transition: opacity 0.3s ease;
+}
+
+.habilidade p {
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+.habilidade.visible {
+  opacity: 1;
+  background-color: #6a0dad;
+  cursor: pointer;
+  transform: scale(1.05);
+  animation: fadeIn 0.5s ease;
+}
+
+.habilidade:hover {
+  background-color: #6a0dad;
+  cursor: pointer;
+  transform: scale(1.05);
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.seta {
+  background-color: rgba(0, 0, 0, 0.8);
+  color: white;
+  border: none;
+  padding: 10px;
+  border-radius: 50%;
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  font-size: 24px;
+  transition: background-color 0.3s ease;
+}
+
+.seta:hover {
+  background-color: #6a0dad;
+}
+
+.seta-esquerda {
+  left: 20px;
+  transform: translateY(-50%);
+}
+
+.seta-direita {
+  right: 20px;
+  transform: translateY(-50%);
+}
