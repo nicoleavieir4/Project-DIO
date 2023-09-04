@@ -1,0 +1,75 @@
+import { Config } from "vagrant";
+
+const config: Config = {
+  machines: {
+    master: {
+      box: "ubuntu/bionic64",
+      network: {
+        private_network: { type: "dhcp" },
+      },
+      hostname: "master",
+      provider: { type: "virtualbox", memory: "1024" },
+      provision: {
+        type: "shell",
+        inline: [
+          "curl -fsSL https://get.docker.com -o get-docker.sh",
+          "sh get-docker.sh",
+          "docker swarm init --advertise-addr eth1",
+        ],
+      },
+    },
+    node01: {
+      box: "ubuntu/bionic64",
+      network: {
+        private_network: { type: "dhcp" },
+      },
+      hostname: "node01",
+      provider: { type: "virtualbox", memory: "1024" },
+      provision: {
+        type: "shell",
+        inline: [
+          "curl -fsSL https://get.docker.com -o get-docker.sh",
+          "sh get-docker.sh",
+          'JOIN_COMMAND=$(vagrant ssh master -c "docker swarm join-token worker -q")',
+          'vagrant ssh node01 -c "$JOIN_COMMAND"',
+        ],
+      },
+    },
+    node02: {
+      box: "ubuntu/bionic64",
+      network: {
+        private_network: { type: "dhcp" },
+      },
+      hostname: "node02",
+      provider: { type: "virtualbox", memory: "1024" },
+      provision: {
+        type: "shell",
+        inline: [
+          "curl -fsSL https://get.docker.com -o get-docker.sh",
+          "sh get-docker.sh",
+          'JOIN_COMMAND=$(vagrant ssh master -c "docker swarm join-token worker -q")',
+          'vagrant ssh node02 -c "$JOIN_COMMAND"',
+        ],
+      },
+    },
+    node03: {
+      box: "ubuntu/bionic64",
+      network: {
+        private_network: { type: "dhcp" },
+      },
+      hostname: "node03",
+      provider: { type: "virtualbox", memory: "1024" },
+      provision: {
+        type: "shell",
+        inline: [
+          "curl -fsSL https://get.docker.com -o get-docker.sh",
+          "sh get-docker.sh",
+          'JOIN_COMMAND=$(vagrant ssh master -c "docker swarm join-token worker -q")',
+          'vagrant ssh node03 -c "$JOIN_COMMAND"',
+        ],
+      },
+    },
+  },
+};
+
+export default config;
