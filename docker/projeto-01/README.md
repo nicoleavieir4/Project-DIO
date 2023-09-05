@@ -1,7 +1,5 @@
 # Portfólio Fictício de Nicole
 
-![Nicole Logo](link_para_o_seu_logo.png)
-
 ## Descrição
 
 Este é o meu portfólio pessoal, onde compartilho informações sobre mim e minhas habilidades como desenvolvedora de software. Este projeto foi criado como parte do meu aprendizado em Docker e é executado em um container Docker. Ele inclui uma página da web que apresenta informações sobre mim, minhas habilidades técnicas e formas de entrar em contato comigo.
