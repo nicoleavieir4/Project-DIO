@@ -1,12 +1,13 @@
 {
-  "name": "logica",
+  "name": "functions",
   "version": "1.0.0",
   "description": "",
   "main": "script.js",
   "scripts": {
-    "main": "node switch.js",
+    "main": "node script.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
